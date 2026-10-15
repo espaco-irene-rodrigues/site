@@ -1,0 +1,147 @@
+/* Espaço Irene Rodrigues — ajustes finos sobre o Tailwind compilado.
+   Sombras douradas, scrollbar, lightbox e botão flutuante de WhatsApp. */
+
+:root {
+  --gold: #c5a059;
+  --ink: #1c1c19;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem; /* compensa o header fixo ao usar âncoras */
+}
+
+body {
+  overscroll-behavior: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar discreta e quente */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f0ede9;
+}
+::-webkit-scrollbar-thumb {
+  background: #d1c5b4;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+/* Sombra âmbar nobre (DESIGN.md — "Warm Ambient Shadow") */
+.shadow-gold {
+  box-shadow:
+    0 16px 36px -10px rgba(32, 31, 30, 0.08),
+    0 4px 12px -2px rgba(197, 160, 89, 0.08);
+}
+
+/* Keyline dourada (hairline "hand-pressed stationery") */
+.keyline-gold {
+  border: 1px solid rgba(197, 160, 89, 0.22);
+}
+
+/* Botão flutuante de WhatsApp */
+.wa-float {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  background: #25d366;
+  color: #fff;
+  box-shadow: 0 8px 24px -4px rgba(37, 211, 102, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.wa-float:hover {
+  transform: scale(1.06);
+  box-shadow: 0 12px 30px -4px rgba(37, 211, 102, 0.6);
+}
+.wa-float svg {
+  width: 1.9rem;
+  height: 1.9rem;
+}
+@media (min-width: 640px) {
+  .wa-float {
+    right: 2rem;
+    bottom: 2rem;
+  }
+}
+
+/* Galeria — proporção de retrato editorial */
+.folio-img {
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* Filtro do portfólio */
+.filter-chip.is-active {
+  background: #efddc3;
+  color: #1c1c19;
+  border-color: #c5a059;
+}
+
+.gallery-item.is-hidden {
+  display: none;
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(28, 28, 25, 0.92);
+  padding: 1.5rem;
+}
+.lightbox.is-open {
+  display: flex;
+}
+.lightbox img {
+  max-width: 92vw;
+  max-height: 88vh;
+  object-fit: contain;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+.lightbox-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.5rem;
+  color: #fcf9f4;
+  font-size: 2.5rem;
+  line-height: 1;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Menu mobile */
+.mobile-menu {
+  display: none;
+}
+.mobile-menu.is-open {
+  display: block;
+}
+
+/* Respeita quem prefere menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,7 @@
+# Binário do Tailwind CLI standalone (~80MB) — baixe sob demanda, não versione.
+tailwindcss
+tailwindcss-*
+
+# Sistema
+.DS_Store
+*.log
