@@ -5,3 +5,7 @@ tailwindcss-*
 # Sistema
 .DS_Store
 *.log
+
+# IDE
+.idea/
+.vscode/
